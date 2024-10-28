@@ -20,7 +20,6 @@
   ],
   "command": "/ac {message}",
   "messageValidation": {
-    "startsWith": " ",
-    "excludePatterns": []
+    "startsWith": " "
   }
 }

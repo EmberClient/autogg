@@ -10,8 +10,5 @@
       "matchType": "exact"
     }
   ],
-  "command": "/g {message}",
-  "messageValidation": {
-    "excludePatterns": []
-  }
+  "command": "/g {message}"
 }
