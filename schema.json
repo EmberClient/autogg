@@ -1,11 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["triggers", "command", "messageValidation"],
+  "required": ["hosts", "triggers", "command"],
   "properties": {
     "hosts": {
       "type": "array",
-      "description": "List of server hostnames that this configuration applies to",
+      "description": "List of server hostnames this configuration applies to",
       "items": {
         "type": "string",
         "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-._]*\\.[a-zA-Z]{2,}$",
@@ -17,8 +17,31 @@
     "triggers": {
       "type": "array",
       "items": {
-        "type": "string",
-        "minLength": 1
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "Simple trigger string - defaults to prefix matching"
+          },
+          {
+            "type": "object",
+            "required": ["pattern"],
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "minLength": 1
+              },
+              "matchType": {
+                "type": "string",
+                "enum": ["exact", "prefix", "contains", "suffix"],
+                "default": "prefix"
+              },
+              "caseSensitive": {
+                "type": "boolean",
+                "default": true
+              }
+            }
+          }
+        ]
       },
       "minItems": 1,
       "uniqueItems": true
@@ -31,11 +54,12 @@
     },
     "messageValidation": {
       "type": "object",
-      "required": ["startsWith", "excludePatterns"],
       "properties": {
         "startsWith": {
-          "type": "string",
-          "minLength": 1
+          "type": "string"
+        },
+        "endsWith": {
+          "type": "string"
         },
         "excludePatterns": {
           "type": "array",
