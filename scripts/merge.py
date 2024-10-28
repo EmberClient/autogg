@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import json
 import os
 
@@ -24,8 +23,8 @@ def merge_configs():
 
     # Write merged configuration
     with open('merged.json', 'w') as f:
-        json.dump(configs, f, indent=2)
-        f.write('\n')  # Add newline at end of file
+        json.dump(configs, f, separators=(',', ':'))
+        f.write('\n')
 
 
 if __name__ == '__main__':
