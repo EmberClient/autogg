@@ -17,31 +17,26 @@
     "triggers": {
       "type": "array",
       "items": {
-        "oneOf": [
-          {
+        "type": "object",
+        "required": ["pattern"],
+        "properties": {
+          "pattern": {
             "type": "string",
-            "description": "Simple trigger string - defaults to prefix matching"
+            "minLength": 1,
+            "description": "The text pattern to match against"
           },
-          {
-            "type": "object",
-            "required": ["pattern"],
-            "properties": {
-              "pattern": {
-                "type": "string",
-                "minLength": 1
-              },
-              "matchType": {
-                "type": "string",
-                "enum": ["exact", "prefix", "contains", "suffix"],
-                "default": "prefix"
-              },
-              "caseSensitive": {
-                "type": "boolean",
-                "default": true
-              }
-            }
+          "matchType": {
+            "type": "string",
+            "enum": ["exact", "prefix", "contains", "suffix"],
+            "default": "prefix",
+            "description": "How the pattern should be matched against the text"
+          },
+          "caseSensitive": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether the pattern matching should be case-sensitive"
           }
-        ]
+        }
       },
       "minItems": 1,
       "uniqueItems": true
@@ -52,14 +47,16 @@
       "minLength": 2,
       "description": "Command with {message} parameter placeholder"
     },
-    "messageValidation": {
+    "validation": {
       "type": "object",
       "properties": {
         "startsWith": {
-          "type": "string"
+          "type": "string",
+          "description": "Required prefix for valid messages"
         },
         "endsWith": {
-          "type": "string"
+          "type": "string",
+          "description": "Required suffix for valid messages"
         },
         "excludePatterns": {
           "type": "array",
@@ -68,7 +65,8 @@
             "minLength": 1
           },
           "uniqueItems": true,
-          "default": []
+          "default": [],
+          "description": "Patterns that should not appear in valid messages"
         }
       }
     }

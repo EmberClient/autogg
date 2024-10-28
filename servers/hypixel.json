@@ -1,25 +1,73 @@
 {
   "hosts": ["hypixel.net"],
   "triggers": [
-    "1st Killer - ",
-    "1st Place - ",
-    " - Damage Dealt - ",
-    "Winning Team - ",
-    "1st - ",
-    "Winners: ",
-    "Winner: ",
-    "Winning Team: ",
-    " won the game!",
-    "Top Seeker: ",
-    "1st Place: ",
-    "Last team standing!",
-    "Winner #1 (",
-    "Top Survivors",
-    "Winners - ",
-    " - Melee Accuracy - "
+    {
+      "pattern": "1st Killer - ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "1st Place - ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": " - Damage Dealt - ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "Winning Team - ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "1st - ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "Winners: ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "Winner: ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "Winning Team: ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": " won the game!",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "Top Seeker: ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "1st Place: ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "Last team standing!",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "Winner #1 (",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "Top Survivors",
+      "matchType": "contains"
+    },
+    {
+      "pattern": "Winners - ",
+      "matchType": "contains"
+    },
+    {
+      "pattern": " - Melee Accuracy - ",
+      "matchType": "contains"
+    }
   ],
   "command": "/ac {message}",
-  "messageValidation": {
+  "validation": {
     "startsWith": " "
   }
 }

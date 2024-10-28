@@ -6,7 +6,15 @@
       "matchType": "exact"
     },
     {
+      "pattern": "Your team won",
+      "matchType": "exact"
+    },
+    {
       "pattern": "Your team lost!",
+      "matchType": "exact"
+    },
+    {
+      "pattern": "Your team lost",
       "matchType": "exact"
     }
   ],
