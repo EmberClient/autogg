@@ -16,23 +16,22 @@ Want to add a new server or update existing configurations? Follow these steps:
 
 1. Fork this repository and create a new branch for your changes.
 2. Add a new JSON file in the `servers` directory, or modify an existing one.
-
    - Name it `servername.json` (for example, `hypixel.json`).
    - List only the main domain in the `hosts` array — no need to include subdomains. Use this template as a guide:
-
    ```json
    {
      "hosts": ["hypixel.net"],
      "triggers": ["Winner: ", "Game Over!"],
-     "command": "/ac gg",
+     "command": "/ac {message}",
      "messageValidation": {
        "startsWith": " ",
        "excludePatterns": []
      }
    }
    ```
-
 3. Open a pull request and wait for the validation checks to pass.
+
+**Note**: The `command` field must include a `{message}` parameter placeholder which will be replaced with the actual message at runtime.
 
 ## Deployment
 

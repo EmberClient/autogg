@@ -18,7 +18,7 @@
     "Winners - ",
     " - Melee Accuracy - "
   ],
-  "command": "/ac gg",
+  "command": "/ac {message}",
   "messageValidation": {
     "startsWith": " ",
     "excludePatterns": []
