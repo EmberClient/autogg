@@ -1,0 +1,26 @@
+{
+  "hosts": ["hypixel.net"],
+  "triggers": [
+    "1st Killer - ",
+    "1st Place - ",
+    " - Damage Dealt - ",
+    "Winning Team - ",
+    "1st - ",
+    "Winners: ",
+    "Winner: ",
+    "Winning Team: ",
+    " won the game!",
+    "Top Seeker: ",
+    "1st Place: ",
+    "Last team standing!",
+    "Winner #1 (",
+    "Top Survivors",
+    "Winners - ",
+    " - Melee Accuracy - "
+  ],
+  "command": "/ac gg",
+  "messageValidation": {
+    "startsWith": " ",
+    "excludePatterns": []
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["triggers", "command", "messageValidation"],
+  "properties": {
+    "hosts": {
+      "type": "array",
+      "description": "List of server hostnames that this configuration applies to",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-._]*\\.[a-zA-Z]{2,}$",
+        "minLength": 4
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "triggers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "command": {
+      "type": "string",
+      "pattern": "^/",
+      "minLength": 2
+    },
+    "messageValidation": {
+      "type": "object",
+      "required": ["startsWith", "excludePatterns"],
+      "properties": {
+        "startsWith": {
+          "type": "string",
+          "minLength": 1
+        },
+        "excludePatterns": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true,
+          "default": []
+        }
+      }
+    }
+  }
+}
